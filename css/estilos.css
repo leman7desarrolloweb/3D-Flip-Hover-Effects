@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'PT Sans', sans-serif;
+    background-color: #000;
+}
+.card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 400px;
+    background-color: #FFF;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) perspective(2000px);
+    box-shadow: inset 300px 0 50px rgba(0,0,0,0.5), 0 20px 100px rgba(0,0,0,0.5);
+    transition: 1s;
+}
+.card:hover{
+    transform: translate(-50%,-50%) perspective(2000px) rotate(-10deg);
+    box-shadow: inset 20px 0 50px rgba(0,0,0,0.5), 0 10px 100px rgba(0,0,0,0.5);
+}
+.card:before{
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #8f0b18;
+    transform-origin: bottom;
+    transform: skewX(-45deg);
+}
+.card:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 5px;
+    height: 100%;
+    background-color: #8f0b18;
+    transform-origin: left;
+    transform: skewY(-45deg);
+}
+.imgBox img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+.card .imgBox{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-origin: left;
+    transition: 1s cubic-bezier(.15,1.7,.84,.58);
+}
+.card:hover .imgBox{
+    transform: rotateY(-135deg);
+}
+.card .details{
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 20px;
+    z-index: -1;
+}
